@@ -25,6 +25,7 @@ public class WAEngine extends WAQueryParametersImpl {
     // WAEngine in another.
     private String server = "api.wolframalpha.com";
     private String path = "/v2/query";
+    private String protocol = "http";
     private String appid;
 
     HttpProvider http;
@@ -89,10 +90,16 @@ public class WAEngine extends WAQueryParametersImpl {
     public void setAppID(String appid) {
         this.appid = appid;
     }
-        
-    
-    
-    public WAQuery createQuery() {      
+
+    public String getProtocol() {
+        return protocol;
+    }
+
+    public void setProtocol(String protocol) {
+        this.protocol = protocol;
+    }
+
+    public WAQuery createQuery() {
         return new WAQueryImpl(this);    
     }
     
@@ -151,7 +158,7 @@ public class WAEngine extends WAQueryParametersImpl {
     
         
     public String toURL(WAQuery query) {
-        return "http://" + server + path + "?" + "appid=" + appid + query;
+        return protocol + "://" + server + path + "?" + "appid=" + appid + query;
     }
     
     

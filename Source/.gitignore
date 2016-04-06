@@ -1,0 +1,10 @@
+.DS_Store
+target/
+src/main/webapp/widgets/
+*.iml
+*.iws
+*.ipr
+.idea/
+derby.log
+twigkit-socialdb/
+logs/
